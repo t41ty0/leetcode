@@ -10,11 +10,18 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        if k is not 0 and len(nums) > 1:
+        if k is not 0 and len(nums) > 1 and len(nums) > k:
             nums[0:0] = nums[-abs(k):]
-            print(nums)
+            # print(nums)
             del nums[len(nums) - k: len(nums)]
-        # print(nums)
+            # print(nums)
+
+        elif len(nums) < k and len(nums) > 1:
+            for i in range(1, k+1):
+                nums.insert(0, nums[-i])
+                # print(nums[-i])
+            del nums[len(nums)-k:]
+            # print(nums)
 
 
 # @lc code=end
